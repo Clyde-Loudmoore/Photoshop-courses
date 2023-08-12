@@ -1,9 +1,14 @@
+import React, { FC, useState } from 'react';
+
 import Htag from "@/components/Htag";
 import Button from "@/components/Button";
 import Ptag from '@/components/Ptag/Ptag';
 import Tag from '@/components/Tag/Tag';
+import Rating from '@/components/Rating/Rating';
 
-const Home: React.FC = () => {
+const Home: FC = () => {
+  const [rating, setRating] = useState<number>(4);
+
   return (
     <main>
       <Htag tag="h1">I Love It!</Htag>
@@ -17,6 +22,7 @@ const Home: React.FC = () => {
       <Tag size='m' color='red'>Red</Tag>
       <Tag size='s' color='green'>Green</Tag>
       <Tag color='primary'>Primary</Tag>
+      <Rating rating={rating} isEditable setRating={setRating} />
     </main>
   );
 };
