@@ -5,12 +5,13 @@ import Button from "@/components/Button";
 import Ptag from '@/components/Ptag/Ptag';
 import Tag from '@/components/Tag/Tag';
 import Rating from '@/components/Rating/Rating';
+import { withLayout } from '@/layout/Layout';
 
 const Home: FC = () => {
   const [rating, setRating] = useState<number>(4);
 
   return (
-    <main>
+    <>
       <Htag tag="h1">I Love It!</Htag>
       <Button appearance='primary' arrow='right'>Кнопка</Button>
       <Button appearance='ghost' arrow='down'>Кнопка</Button>
@@ -23,8 +24,8 @@ const Home: FC = () => {
       <Tag size='s' color='green'>Green</Tag>
       <Tag color='primary'>Primary</Tag>
       <Rating rating={rating} isEditable setRating={setRating} />
-    </main>
+    </>
   );
 };
 
-export default Home;
+export default withLayout(Home);
