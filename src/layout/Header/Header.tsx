@@ -4,9 +4,9 @@ import { IHeaderProps } from "./HeaderProps";
 
 const Header: React.FC<IHeaderProps> = ({ ...props }) => {
   return (
-    <div {...props}>
+    <header {...props}>
       Header
-    </div>
+    </header>
   );
 };
 

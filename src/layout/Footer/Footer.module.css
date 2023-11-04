@@ -1,0 +1,21 @@
+.base {
+  color: var(--white);
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.base:hover {
+  color: var(--blanchedalmond)
+}
+
+.rights {
+  grid-area: rights;
+}
+
+.agreement {
+  grid-area: agreement;
+}
+
+.policy {
+  grid-area: policy;
+}
