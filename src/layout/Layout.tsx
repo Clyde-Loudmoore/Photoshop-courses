@@ -1,10 +1,10 @@
-// import cn from 'classnames';
 import { ILayoutProps } from "./Layout.props";
 import styles from './Layout.module.css';
 import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 import Footer from './Footer/Footer';
 import { FC } from 'react';
+import { AppContextProvider, IAppContext } from 'context/app.context';
 
 const Layout: React.FC<ILayoutProps> = ({ children }) => {
   return (
@@ -19,12 +19,14 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
   );
 };
 
-export const withLayout = <T extends Record<string, unknown>>(Component: FC<T>) => {
+export const withLayout = <T extends Record<string, unknown> & IAppContext>(Component: FC<T>) => {
   return function withLayoutComponent(props: T): JSX.Element {
     return (
-      <Layout>
-        <Component {...props} />
-      </Layout>
+      <AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      </AppContextProvider>
     );
   };
 };
